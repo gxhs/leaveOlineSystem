@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 全局setting配置，根据需要添加 -->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <!-- 配置别名 -->
+    <typeAliases>
+        <!-- 批量扫描别名 -->
+        <package name="com.ssm.entity"/>
+    </typeAliases>
+
+    <!--<plugins>-->
+        <!--<plugin interceptor="gxh.ssm.plugin.PagePlugin">-->
+            <!--&lt;!&ndash;默认页码&ndash;&gt;-->
+            <!--<property name="default.page" value="1" />-->
+            <!--&lt;!&ndash;默认每条页数&ndash;&gt;-->
+            <!--<property name="default.pageSize" value="5" />-->
+            <!--&lt;!&ndash;是否启动分页插件&ndash;&gt;-->
+            <!--<property name="default.useFlag" value="true" />-->
+            <!--&lt;!&ndash;是否检查页码有效性 如果无效 抛出异常&ndash;&gt;-->
+            <!--<property name="default.checkFlag" value="false" />-->
+            <!--&lt;!&ndash;针对有order by的sql，是否去掉最后一个order by以后的语句 提高性能&ndash;&gt;-->
+            <!--<property name="default.cleanOrderBy" value="false" />-->
+        <!--</plugin>-->
+    <!--</plugins>-->
+
+</configuration>
