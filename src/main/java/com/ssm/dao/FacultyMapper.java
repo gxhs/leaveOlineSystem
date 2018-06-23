@@ -2,6 +2,7 @@ package com.ssm.dao;
 
 import com.ssm.entity.Faculty;
 import com.ssm.entity.FacultyExample;
+import com.ssm.entity.Leave;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -28,4 +29,9 @@ public interface FacultyMapper {
     int updateByPrimaryKeySelective(Faculty record);
 
     int updateByPrimaryKey(Faculty record);
+
+    //so
+    List<Leave> getLeave(String sno);
+    Leave getOne(String sno);
+
 }

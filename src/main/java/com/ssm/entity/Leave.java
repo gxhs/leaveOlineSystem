@@ -21,6 +21,16 @@ public class Leave {
 
     private Integer studentId;
 
+    private Student student;
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
     public Integer getId() {
         return id;
     }

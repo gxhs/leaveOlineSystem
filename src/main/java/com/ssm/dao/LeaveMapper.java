@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 public interface LeaveMapper {
     int countByExample(LeaveExample example);
+    int countBySid(Integer id);
 
     int deleteByExample(LeaveExample example);
 
@@ -27,4 +28,11 @@ public interface LeaveMapper {
     int updateByPrimaryKeySelective(Leave record);
 
     int updateByPrimaryKey(Leave record);
+
+    //so
+    Leave selectOneBySno(Integer sno);
+    List<Leave> getAll();
+    List<Leave> selectLeaveBySno(Integer id);
+    List<Leave> selectAllUnratifyBySno(String approver);
+    Leave selectRatifyBySno(Integer sno);
 }

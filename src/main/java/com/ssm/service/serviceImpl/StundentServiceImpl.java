@@ -19,4 +19,9 @@ public class StundentServiceImpl implements StudentService {
         criteria.andSnoEqualTo(example);
         return (Student) studentMapper.selectByExample(studentExample);
     }
+
+    @Override
+    public Student selectByPrimaryKey(Integer id) {
+        return studentMapper.selectByPrimaryKey(id);
+    }
 }

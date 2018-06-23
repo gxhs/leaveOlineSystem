@@ -19,7 +19,6 @@ public interface StudentMapper {
 
     Student selectByExample(StudentExample example);
 
-
     Student selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") Student record, @Param("example") StudentExample example);
@@ -29,4 +28,6 @@ public interface StudentMapper {
     int updateByPrimaryKeySelective(Student record);
 
     int updateByPrimaryKey(Student record);
+
+    Student selectById(Integer id);
 }

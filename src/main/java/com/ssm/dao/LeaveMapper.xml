@@ -11,6 +11,8 @@
     <result column="reason" property="reason" jdbcType="VARCHAR" />
     <result column="state" property="state" jdbcType="VARCHAR" />
     <result column="student_id" property="studentId" jdbcType="INTEGER" />
+    <association property="student" select="com.ssm.dao.StudentMapper.selectById"
+                 column="student_id"></association>
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -79,7 +81,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from leave
+    from leaveoline.leave
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -181,7 +183,7 @@
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update leave
+    update leaveoline.leave
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
@@ -231,7 +233,7 @@
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.ssm.entity.Leave" >
-    update leave
+    update leaveoline.leave
     <set >
       <if test="starttime != null" >
         starttime = #{starttime,jdbcType=TIMESTAMP},
@@ -272,4 +274,41 @@
       student_id = #{studentId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="countBySid" resultType="integer" parameterType="integer">
+    select count(*)
+    from leaveoline.leave
+    WHERE student_id=#{student_id} and state='已销假'
+  </select>
+
+  <select id="selectOneBySno" resultMap="BaseResultMap" parameterType="integer">
+    SELECT *
+    FROM leaveoline.leave
+    WHERE leave.student_id = #{student_id} and leave.state="待审批"
+  </select>
+
+  <select id="getAll" resultMap="BaseResultMap">
+    SELECT *
+    FROM leaveoline.leave
+    WHERE state = "请假中"
+  </select>
+
+  <select id="selectLeaveBySno" parameterType="java.lang.Integer" resultType="com.ssm.entity.Leave">
+    SELECT *
+    FROM leaveoline.leave
+    WHERE student_id = #{student_id} AND state = "已销假"
+  </select>
+
+  <select id="selectAllUnratifyBySno" resultMap="BaseResultMap" parameterType="integer">
+    SELECT *
+    FROM leaveoline.leave
+    WHERE leave.approver = #{approver} and leave.state="待审批"
+  </select>
+
+  <select id="selectRatifyBySno" resultType="com.ssm.entity.Leave" parameterType="integer">
+    SELECT *
+    FROM leaveoline.leave
+    WHERE student_id = #{student_id} AND state = "请假中"
+  </select>
+
 </mapper>

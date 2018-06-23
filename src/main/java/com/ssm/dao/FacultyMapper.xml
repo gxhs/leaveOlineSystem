@@ -178,4 +178,12 @@
       password = #{password,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="getLeave" parameterType="java.lang.Integer" resultType="com.ssm.entity.Leave">
+    select * from leaveoline.leave WHERE sno=#{sno} and approver is not null
+  </select>
+  <select id="getOne" resultType="com.ssm.entity.Leave">
+    select * from leaveoline.leave WHERE sno=#{sno} and state is null
+  </select>
+
 </mapper>

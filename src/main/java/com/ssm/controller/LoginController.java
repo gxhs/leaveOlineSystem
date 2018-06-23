@@ -59,13 +59,16 @@ public class LoginController {
     }
 
     @RequestMapping("/assistant")
-    public String assistant(HttpSession session) {
+    public String assistant(Model model,HttpSession session) {
         Assistant assistant = assistantService.selectByAno(sno);
         assistant.getAno();
         assistant.getPassword();
         if (assistant.getAno().equals(sno) && assistant.getPassword().equals(psw)) {
             session.setAttribute("ano", sno);
-            return "/assistant";
+            String name=assistant.getName();
+            System.out.println("***************************************************"+name);
+            model.addAttribute("Aname",name);
+            return "/AssistantHoutai";
         }
         return "login";
     }

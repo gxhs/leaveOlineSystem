@@ -208,4 +208,10 @@
       major_id = #{majorId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="selectById" parameterType="integer" resultType="com.ssm.entity.Student">
+    SELECT *
+    FROM leaveoline.student
+    WHERE id=#{id}
+  </select>
 </mapper>

@@ -14,4 +14,6 @@ public class StudentController {
     public Student selectBySno(String sno){
         return studentService.selectBySno(sno);
     }
+
+
 }

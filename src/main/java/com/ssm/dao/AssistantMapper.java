@@ -2,6 +2,7 @@ package com.ssm.dao;
 
 import com.ssm.entity.Assistant;
 import com.ssm.entity.AssistantExample;
+import com.ssm.entity.Leave;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -28,4 +29,10 @@ public interface AssistantMapper {
     int updateByPrimaryKeySelective(Assistant record);
 
     int updateByPrimaryKey(Assistant record);
+
+    //so
+//    List<Leave> selectLeaveBySno(Integer id);
+//   Leave selectOneBySno(Integer sno);
+//    List<Leave> getAll();
+    Assistant selectNameBySid(Integer id);
 }

@@ -17,13 +17,12 @@
     <title>$Title$</title>
 </head>
 <style>
-    #logindiv {
-
+    #logindiv{
+        background-color: cornflowerblue;
+        line-height: 30px;
         text-align: center;
-
-        border: 2px solid #FF0000;
-        width: 300px;
-        height: 300px;
+        width: 315px;
+        height:300px;
         margin: auto;
         position: absolute;
         top: 0;
@@ -31,8 +30,11 @@
         right: 0;
         bottom: 0;
     }
+    .s1{
+        width: 140px;
+    }
 </style>
-<body>
+<body  background="img/bule.jpg">
 <div id="logindiv">
     <form action="/login/url" method="post">
         <label>用户名:</label> <input type="text" name="name"/></br>
@@ -48,6 +50,3 @@
 </body>
 </html>
 
-
-</body>
-</html>
